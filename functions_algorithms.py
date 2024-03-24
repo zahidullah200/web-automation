@@ -19,7 +19,7 @@ def read_images_and_send_keys(folder_path, input_element):
 
 
 
-time.sleep(5)
+time.sleep(1)
 #Bubble sort algorithms
 def bubleFunc(driver,browser_config):
     # Open the web page
@@ -28,33 +28,33 @@ def bubleFunc(driver,browser_config):
         
         if not os.path.exists(BUBBLE_FOLDER):
             os.makedirs(BUBBLE_FOLDER)
-        bubble_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "b_sortt")))
+        bubble_button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.ID, "b_sortt")))
         bubble_button.click()
-        WebDriverWait(driver, 20).until(EC.url_to_be(BUBBLE_SORT_URL))
-        input_numbers = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "inputNumbers")))
+        WebDriverWait(driver, 2).until(EC.url_to_be(BUBBLE_SORT_URL))
+        input_numbers = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "inputNumbers")))
         read_numbers_and_send_keys("random.txt", input_numbers)
-        time.sleep(3)
-        combo_box = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "sortingMethod")))
+        time.sleep(1)
+        combo_box = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "sortingMethod")))
         combo_box.click()
-        option_webassembly = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//option[text()='WebAssembly']")))
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='WebAssembly']")))
         option_webassembly.click()
         webassembly_times = []
         for _ in range(10):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "buble_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "buble_btn")))
             button.click()
             time.sleep(1)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             webassembly_times.append(time_taken.text)
         
         combo_box.click()
-        option_javascript = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//option[text()='JavaScript']")))
+        option_javascript = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='JavaScript']")))
         option_javascript.click()
         javascript_times = []
         for _ in range(10):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "buble_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "buble_btn")))
             button.click()
             time.sleep(1)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             javascript_times.append(time_taken.text)
         time.sleep(3)
         file_path = os.path.join(BUBBLE_FOLDER, f'{browser_config["browserName"]}_bubble_sort.csv')
@@ -68,7 +68,7 @@ def bubleFunc(driver,browser_config):
             for wasm_time, js_time in zip(webassembly_times, javascript_times):
                 writer.writerow([wasm_time, js_time])
         driver.get(MAIN_URL)
-        time.sleep(5)
+        time.sleep(3)
     except Exception as e:
         print("An error occurred:", e)
 
@@ -85,28 +85,27 @@ def imageGenerationFunc(driver, browser_config):
         if not os.path.exists(IMG_GEN_FOLDER):
             os.makedirs(IMG_GEN_FOLDER)
         driver.get(IMG_GEN_URL)
-        driver.implicitly_wait(10)
-        combo_box = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "wasm-js")))
+        combo_box = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "wasm-js")))
         combo_box.click()
-        option_webassembly = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//option[text()='Web Assembly']")))
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='Web Assembly']")))
         option_webassembly.click()
         webassembly_times_img = []
         for _ in range(5):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "sort_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "sort_btn")))
             button.click()
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             webassembly_times_img.append(time_taken.text)
         combo_box.click()
-        option_javascript = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//option[text()='javascript']")))
+        option_javascript = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='javascript']")))
         option_javascript.click()
         javascript_times_img = []
         for _ in range(5):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "sort_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "sort_btn")))
             button.click()
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             javascript_times_img.append(time_taken.text)
         
-        time.sleep(3)
+        time.sleep(1)
         file_path_img = os.path.join(IMG_GEN_FOLDER, f'{browser_config["browserName"]}_image_generation_sort.csv')
         with open(file_path_img, 'w', newline='') as csvfile_img:
             writer_img = csv.writer(csvfile_img)
@@ -117,9 +116,9 @@ def imageGenerationFunc(driver, browser_config):
             writer_img.writerow(["Wasm_time_taken", "Js_time_taken"])
             for wasm_time_img, js_time_img in zip(webassembly_times_img, javascript_times_img):
                 writer_img.writerow([wasm_time_img, js_time_img])
-        time.sleep(3)
+        time.sleep(1)
         driver.get(MAIN_URL)
-        time.sleep(5)
+        time.sleep(3)
     
     except Exception as e:
         print("An error occurred:", e)
@@ -137,35 +136,35 @@ def reverseFunc(driver,browser_config):
         if not os.path.exists(REVERSE_ARRAY):
             os.makedirs(REVERSE_ARRAY)
     
-        reverse_array = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "r_array")))
+        reverse_array = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.ID, "r_array")))
         reverse_array.click()
-        time.sleep(5)
-        input_numbers = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "inputArray")))
+        time.sleep(1)
+        input_numbers = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "inputArray")))
         read_numbers_and_send_keys("random.txt", input_numbers)
-        combo_box = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "method")))
+        combo_box = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "method")))
         combo_box.click()
-        option_webassembly = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "webassembly")))
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "webassembly")))
         option_webassembly.click()
     
         webassembly_times = []
         for _ in range(10):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "r_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "r_btn")))
             button.click()
             time.sleep(1)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             webassembly_times.append(time_taken.text)
 
-        option_webassembly = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "javascript")))
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "javascript")))
         option_webassembly.click()
         javascript_times = []
         for _ in range(10):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "r_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "r_btn")))
             button.click()
             time.sleep(1)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             javascript_times.append(time_taken.text)
 
-        time.sleep(5)
+        time.sleep(1)
         file_path = os.path.join(REVERSE_ARRAY, f'{browser_config["browserName"]}_reverseArray.csv')
         with open(file_path, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -178,7 +177,7 @@ def reverseFunc(driver,browser_config):
                 writer.writerow([wasm_time, js_time])
 
         driver.get(MAIN_URL)
-        time.sleep(5)
+        time.sleep(3)
 
     except Exception as e:
         print("An error occurred:", e)
@@ -195,38 +194,38 @@ def thresholdFunc(driver, browser_config):
         if not os.path.exists(THRESHOLD):
             os.makedirs(THRESHOLD)
         
-        time.sleep(3)
-        file_input = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'thre_btn')))
+        time.sleep(1)
+        file_input = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.ID, 'thre_btn')))
         file_input.click()
-        file_input = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'thresholdImageInput')))
+        file_input = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.ID, 'thresholdImageInput')))
         file_path = os.path.abspath("images/coverimage2.jpg")
         file_input.send_keys(file_path)
-        time.sleep(3)
-        thr_combo = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'implementationSelect')))
+        time.sleep(1)
+        thr_combo = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.ID, 'implementationSelect')))
         thr_combo.click()
-        time.sleep(3)
-        option_webassembly = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//option[text()='WebAssembly']")))
+        time.sleep(1)
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='WebAssembly']")))
         option_webassembly.click()
         webassembly_times_thre = []
         for _ in range(5):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "processButton")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "processButton")))
             button.click()
-            time.sleep(3)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "timeLabel")))
+            time.sleep(1)
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "timeLabel")))
             webassembly_times_thre.append(time_taken.text)
         thr_combo.click()
-        option_javascript = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//option[text()='JavaScript']")))
+        option_javascript = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='JavaScript']")))
         option_javascript.click()
         javascript_times_thre = []
         for _ in range(5):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "processButton")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "processButton")))
             button.click()
             time.sleep(3)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "timeLabel")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "timeLabel")))
             javascript_times_thre.append(time_taken.text)
         
 
-        time.sleep(5)
+        time.sleep(3)
         
         file_path = os.path.join(THRESHOLD, f'{browser_config["browserName"]}_threshold.csv')
         with open(file_path, 'w', newline='') as csvfile:
@@ -240,9 +239,10 @@ def thresholdFunc(driver, browser_config):
             for wasm_time, js_time in zip(webassembly_times_thre, javascript_times_thre):
                 writer.writerow([wasm_time, js_time])
 
-        time.sleep(3)
-        driver.get(MAIN_URL)
         
+        driver.get(MAIN_URL)
+        time.sleep(3)
+
     except Exception as e:
         print("An error occurred:", str(e))
 
@@ -255,38 +255,38 @@ def fiboFunc(driver, browser_config):
         if not os.path.exists(FIBO_CAL):
             os.makedirs(FIBO_CAL)
         
-        fibo_btn = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "fibo_btn")))
-        time.sleep(3)
+        fibo_btn = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.ID, "fibo_btn")))
+        time.sleep(1)
         fibo_btn.click()
-        time.sleep(5)
-        input_numbers = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "inputNumber")))
+        time.sleep(1)
+        input_numbers = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "inputNumber")))
         input_numbers.send_keys(36)  # Change this value as needed
-        time.sleep(3)
-        combo_box = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "method")))
+        time.sleep(1)
+        combo_box = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "method")))
         combo_box.click()
-        time.sleep(3)
-        option_webassembly = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "WebAssembly")))
+        time.sleep(1)
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "WebAssembly")))
         option_webassembly.click()
     
         webassembly_times = []
         for _ in range(10):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "fibo_calc_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "fibo_calc_btn")))
             button.click()
             time.sleep(1)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             webassembly_times.append(time_taken.text)
-        time.sleep(3)
-        option_javascript = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "JavaScript")))
+        time.sleep(1)
+        option_javascript = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "JavaScript")))
         option_javascript.click()
         javascript_times = []
         for _ in range(10):
-            button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "fibo_calc_btn")))
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "fibo_calc_btn")))
             button.click()
             time.sleep(1)
-            time_taken = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "time_taken")))
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             javascript_times.append(time_taken.text)
 
-        time.sleep(5)
+        time.sleep(1)
         file_path = os.path.join(FIBO_CAL, f'{browser_config["browserName"]}_fibonacci.csv')
         with open(file_path, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
@@ -299,7 +299,7 @@ def fiboFunc(driver, browser_config):
                 writer.writerow([wasm_time, js_time])
 
         driver.get(MAIN_URL)
-        time.sleep(5)
+        time.sleep(3)
 
     except Exception as e:
         print("An error occurred:", e)

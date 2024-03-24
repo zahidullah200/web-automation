@@ -2,7 +2,7 @@ from browser_links import *
 
 
 #Reverse array
-def bubbleSort():
+def bubbleSortReport():
     # Define filenames of the CSV files for each browser
     chrome_csv = 'bubble/chrome_bubble_sort.csv'
     firefox_csv = 'bubble/firefox_bubble_sort.csv'
@@ -70,7 +70,7 @@ def bubbleSort():
 
 
 #image generation
-def image_generationSortFun():
+def image_generationSortReport():
     # Define filenames of the CSV files for each browser
     chrome_csv = 'image-generation/chrome_image_generation_sort.csv'
     firefox_csv = 'image-generation/firefox_image_generation_sort.csv'
@@ -140,7 +140,7 @@ def image_generationSortFun():
 
 
 #Reverse array
-def reverseArray():
+def reverseArrayReport():
     # Define filenames of the CSV files for each browser
     chrome_csv = 'reverse-array/chrome_reverseArray.csv'
     firefox_csv = 'reverse-array/firefox_reverseArray.csv'
@@ -207,7 +207,7 @@ def reverseArray():
 
 
 #Threshold image processing
-def thresholdImg():
+def thresholdImgReport():
     # Define filenames of the CSV files for each browser
     chrome_csv = 'threshold/chrome_threshold.csv'
     firefox_csv = 'threshold/firefox_threshold.csv'
@@ -274,7 +274,7 @@ def thresholdImg():
 
 
 #Fibonacci report
-def fibonaccFuncReport():
+def fibonacciReport():
     # Define filenames of the CSV files for each browser
     chrome_csv = 'fibonacci/chrome_fibonacci.csv'
     firefox_csv = 'fibonacci/firefox_fibonacci.csv'
