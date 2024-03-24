@@ -120,7 +120,6 @@ def imageGenerationFunc(driver, browser_config):
 
 #Revers algorithm function
 def reverseFunc(driver,browser_config):
-    # Open the web page
     try:
         REVERSE_ARRAY = 'reverse-array'
         if not os.path.exists(REVERSE_ARRAY):
@@ -171,7 +170,6 @@ def reverseFunc(driver,browser_config):
 
 #Threshold image processing function
 def thresholdFunc(driver, browser_config):
-    # Open the web page
     try:
         THRESHOLD = 'threshold'
         if not os.path.exists(THRESHOLD):
@@ -267,3 +265,104 @@ def fiboFunc(driver, browser_config):
 
     except Exception as e:
         print("An error occurred:", e)
+
+
+
+#Quick sortalgorithm automation
+def quickSort(driver, browser_config):
+    try:
+        QUICK_SORT = 'quick_sort'
+        if not os.path.exists(QUICK_SORT):
+            os.makedirs(QUICK_SORT)
+        
+        fibo_btn = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.ID, "quick_btn")))
+        time.sleep(1)
+        fibo_btn.click()
+        time.sleep(1)
+        input_numbers = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "inputArray")))
+        read_numbers_and_send_keys("random.txt", input_numbers)
+        time.sleep(1)
+        combo_box = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "method")))
+        combo_box.click()
+        time.sleep(1)
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "WebAssembly")))
+        option_webassembly.click()
+    
+        webassembly_times = []
+        for _ in range(10):
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "quick_btn")))
+            button.click()
+            time.sleep(1)
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "timeLabel")))
+            webassembly_times.append(time_taken.text)
+        time.sleep(1)
+        option_javascript = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "JavaScript")))
+        option_javascript.click()
+        javascript_times = []
+        for _ in range(10):
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "quick_btn")))
+            button.click()
+            time.sleep(1)
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "timeLabel")))
+            javascript_times.append(time_taken.text)
+
+        time.sleep(1)
+        file_path = os.path.join(QUICK_SORT, f'{browser_config["browserName"]}_quicksort.csv')
+        write_csv_file(file_path, driver, browser_config, webassembly_times, javascript_times)
+
+
+        driver.get(MAIN_URL)
+        time.sleep(3)
+
+    except Exception as e:
+        print("An error occurred:", e)
+
+
+
+#Image convolution algorithm automation
+def convolution(driver, browser_config):
+    try:
+        CONV = 'convolution'
+        if not os.path.exists(CONV):
+            os.makedirs(CONV)
+        
+        time.sleep(1)
+        file_input = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.ID, 'con_btn')))
+        file_input.click()
+        file_input = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.ID, 'fileInput')))
+        file_path = os.path.abspath("images/coverimage2.jpg")
+        file_input.send_keys(file_path)
+        time.sleep(1)
+        thr_combo = WebDriverWait(driver, 2).until(EC.visibility_of_element_located((By.ID, 'implementationSelect')))
+        thr_combo.click()
+        time.sleep(1)
+        option_webassembly = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='WebAssembly']")))
+        option_webassembly.click()
+        webassembly_times_thre = []
+        for _ in range(5):
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "processButton")))
+            button.click()
+            time.sleep(1)
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "performanceLabel")))
+            webassembly_times_thre.append(time_taken.text)
+        thr_combo.click()
+        option_javascript = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.XPATH, "//option[text()='JavaScript']")))
+        option_javascript.click()
+        javascript_times_thre = []
+        for _ in range(5):
+            button = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "processButton")))
+            button.click()
+            time.sleep(3)
+            time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "performanceLabel")))
+            javascript_times_thre.append(time_taken.text)
+        time.sleep(1)
+        file_path = os.path.join(CONV, f'{browser_config["browserName"]}_convolution.csv')
+        write_csv_file(file_path, driver, browser_config, webassembly_times_thre, javascript_times_thre)
+
+        
+        driver.get(MAIN_URL)
+        time.sleep(3)
+
+    except Exception as e:
+        print("An error occurred:", str(e))
+

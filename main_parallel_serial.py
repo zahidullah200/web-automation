@@ -13,9 +13,11 @@ def generate_reports():
     generate_report('reverseArray', 'reverse-array', 'Reverse Array Report in 4 Major Browsers')
     generate_report('threshold', 'threshold', 'Threshold Image Processing Report in 4 Major Browsers')
     generate_report('fibonacci', 'fibonacci', 'Fibonacci Report in 4 Major Browsers')
+    generate_report('quicksort', 'quick_sort', 'Quick Sort Report in 4 Major Browsers')
+    generate_report('convolution', 'convolution', 'Convolution Image Pocessing Report in 4 Major Browsers')
 
     # List of PDF files to merge
-    pdf_files = ['reports/image_generation_sort.pdf', 'reports/bubble_sort.pdf', 'reports/reverseArray.pdf', 'reports/threshold.pdf', 'reports/fibonacci.pdf']
+    pdf_files = ['reports/image_generation_sort.pdf', 'reports/bubble_sort.pdf', 'reports/reverseArray.pdf', 'reports/threshold.pdf', 'reports/fibonacci.pdf', 'reports/quicksort.pdf', 'reports/convolution.pdf']
 
     # Output path for the merged PDF
     output_path = 'all_reports_combined.pdf'
@@ -29,22 +31,27 @@ def test_parallel_serial(browser_config):
         driver = browser_config["driver"]()
         driver.maximize_window()
         driver.get(MAIN_URL)
-        #driver.implicitly_wait(20)
 
-        # Bubble sort function
+        #Bubble sort function
         bubleFunc(driver, browser_config)
 
         # Image generation function calling from functions_algorithms
         imageGenerationFunc(driver, browser_config)
 
-        # # Reverse array
+        #Reverse array
         reverseFunc(driver, browser_config)
 
-        # # Image threshold algorithm
+        #Image threshold algorithm
         thresholdFunc(driver, browser_config)
 
-        # # Fibonacci function calling
+        #Fibonacci function calling
         fiboFunc(driver, browser_config)
+
+        #Quick sort function calling
+        quickSort(driver, browser_config)
+
+        #Convolution image processing sort function calling
+        convolution(driver, browser_config)
 
         # Generate reports
         generate_reports()

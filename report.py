@@ -1,10 +1,4 @@
-import os
-import csv
-import statistics
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
-from reportlab.lib.styles import getSampleStyleSheet
-import matplotlib.pyplot as plt
+from browser_links import *
 
 def generate_report(metric_name, csv_folder, report_title):
     # Define filenames of the CSV files for each browser
