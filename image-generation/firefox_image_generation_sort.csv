@@ -3,8 +3,8 @@ firefox,124.0.1
 Operating System,Processor Info,RAM Info
 Windows,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",7.86 GB
 Wasm_time_taken,Js_time_taken
-1095.00 ms,2252.00 ms
-1097.00 ms,2231.00 ms
-1073.00 ms,2363.00 ms
-1063.00 ms,2301.00 ms
-1053.00 ms,2300.00 ms
+1069.00 ms,2203.00 ms
+1059.00 ms,2234.00 ms
+1056.00 ms,2242.00 ms
+1057.00 ms,2267.00 ms
+1067.00 ms,2270.00 ms

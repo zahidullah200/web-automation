@@ -3,8 +3,8 @@ MicrosoftEdge,122.0.2365.92
 Operating System,Processor Info,RAM Info
 Windows,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",7.86 GB
 Wasm_time_taken,Js_time_taken
-5.60 ms,11.00 ms
-2.40 ms,8.30 ms
-2.40 ms,7.90 ms
-2.60 ms,7.80 ms
-2.30 ms,10.00 ms
+5.70 ms,11.40 ms
+2.80 ms,9.50 ms
+2.40 ms,8.20 ms
+3.10 ms,8.10 ms
+2.30 ms,9.90 ms

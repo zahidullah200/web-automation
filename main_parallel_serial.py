@@ -7,13 +7,15 @@ from merge import merge_pdfs
 image_folder = "images"
 
 def generate_reports():
-    bubbleSortReport()
-    image_generationSortReport()
-    reverseArrayReport()
-    thresholdImgReport()
-    fibonacciReport()
+    # Call the function for each performance metric
+    generate_report('bubble_sort', 'bubble', 'Bubble Sort Report in 4 Major Browsers')
+    generate_report('image_generation_sort', 'image-generation', 'Image Generation and Sort Report in 4 Major Browsers')
+    generate_report('reverseArray', 'reverse-array', 'Reverse Array Report in 4 Major Browsers')
+    generate_report('threshold', 'threshold', 'Threshold Image Processing Report in 4 Major Browsers')
+    generate_report('fibonacci', 'fibonacci', 'Fibonacci Report in 4 Major Browsers')
+
     # List of PDF files to merge
-    pdf_files = ['reports/imageGenerationSort.pdf', 'reports/bubbleSort.pdf', 'reports/revereseArray.pdf', 'reports/threshold.pdf', 'reports/fibonacci.pdf']
+    pdf_files = ['reports/image_generation_sort.pdf', 'reports/bubble_sort.pdf', 'reports/reverseArray.pdf', 'reports/threshold.pdf', 'reports/fibonacci.pdf']
 
     # Output path for the merged PDF
     output_path = 'all_reports_combined.pdf'
