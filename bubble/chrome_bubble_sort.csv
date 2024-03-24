@@ -3,13 +3,13 @@ chrome,122.0.6261.131
 Operating System,Processor Info,RAM Info
 Windows,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",7.86 GB
 Wasm_time_taken,Js_time_taken
-0.40 ms,0.10 ms
+0.40 ms,0.20 ms
 0.00 ms,0.00 ms
 0.00 ms,0.00 ms
 0.00 ms,0.00 ms
-0.10 ms,0.00 ms
+0.10 ms,0.10 ms
 0.10 ms,0.20 ms
 0.00 ms,0.00 ms
 0.00 ms,0.00 ms
 0.10 ms,0.00 ms
-0.00 ms,0.00 ms
+0.10 ms,0.00 ms

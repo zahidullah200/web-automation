@@ -19,15 +19,26 @@ def read_images_and_send_keys(folder_path, input_element):
 
 
 
-time.sleep(1)
-#Bubble sort algorithms
-def bubleFunc(driver,browser_config):
-    # Open the web page
+
+def write_csv_file(file_path, driver, browser_config, webassembly_times, javascript_times):
+    with open(file_path, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Browser Name", "Browser Version"])
+        writer.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
+        writer.writerow(["Operating System", "Processor Info", "RAM Info"])
+        writer.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (1024.0 ** 3), 2)) + " GB"])
+        writer.writerow(["Wasm_time_taken", "Js_time_taken"])
+        for wasm_time, js_time in zip(webassembly_times, javascript_times):
+            writer.writerow([wasm_time, js_time])
+        time.sleep(1)
+
+
+def bubleFunc(driver, browser_config):
     try:
         BUBBLE_FOLDER = 'bubble'
-        
         if not os.path.exists(BUBBLE_FOLDER):
             os.makedirs(BUBBLE_FOLDER)
+        
         bubble_button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.ID, "b_sortt")))
         bubble_button.click()
         WebDriverWait(driver, 2).until(EC.url_to_be(BUBBLE_SORT_URL))
@@ -56,34 +67,23 @@ def bubleFunc(driver,browser_config):
             time.sleep(1)
             time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "time_taken")))
             javascript_times.append(time_taken.text)
-        time.sleep(3)
+        
+        time.sleep(1)
         file_path = os.path.join(BUBBLE_FOLDER, f'{browser_config["browserName"]}_bubble_sort.csv')
-        with open(file_path, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(["Browser Name", "Browser Version"])
-            writer.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
-            writer.writerow(["Operating System", "Processor Info", "RAM Info"])
-            writer.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (1024.0 ** 3), 2)) + " GB"])
-            writer.writerow(["Wasm_time_taken", "Js_time_taken"])
-            for wasm_time, js_time in zip(webassembly_times, javascript_times):
-                writer.writerow([wasm_time, js_time])
+        write_csv_file(file_path, driver, browser_config, webassembly_times, javascript_times)
         driver.get(MAIN_URL)
-        time.sleep(3)
+        time.sleep(1)
+    
     except Exception as e:
         print("An error occurred:", e)
 
 
-
-
-
-
-
-#Image generation and sort
 def imageGenerationFunc(driver, browser_config):
     try:
         IMG_GEN_FOLDER = 'image-generation'
         if not os.path.exists(IMG_GEN_FOLDER):
             os.makedirs(IMG_GEN_FOLDER)
+        
         driver.get(IMG_GEN_URL)
         combo_box = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "wasm-js")))
         combo_box.click()
@@ -107,23 +107,13 @@ def imageGenerationFunc(driver, browser_config):
         
         time.sleep(1)
         file_path_img = os.path.join(IMG_GEN_FOLDER, f'{browser_config["browserName"]}_image_generation_sort.csv')
-        with open(file_path_img, 'w', newline='') as csvfile_img:
-            writer_img = csv.writer(csvfile_img)
-            writer_img.writerow(["Browser Name", "Browser Version"])
-            writer_img.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
-            writer_img.writerow(["Operating System", "Processor Info", "RAM Info"])
-            writer_img.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (1024.0 ** 3), 2)) + " GB"])
-            writer_img.writerow(["Wasm_time_taken", "Js_time_taken"])
-            for wasm_time_img, js_time_img in zip(webassembly_times_img, javascript_times_img):
-                writer_img.writerow([wasm_time_img, js_time_img])
-        time.sleep(1)
+        write_csv_file(file_path_img, driver, browser_config, webassembly_times_img, javascript_times_img)
+        
         driver.get(MAIN_URL)
-        time.sleep(3)
+        time.sleep(1)
     
     except Exception as e:
         print("An error occurred:", e)
-
-
 
 
 
@@ -166,18 +156,11 @@ def reverseFunc(driver,browser_config):
 
         time.sleep(1)
         file_path = os.path.join(REVERSE_ARRAY, f'{browser_config["browserName"]}_reverseArray.csv')
-        with open(file_path, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(["Browser Name", "Browser Version"])
-            writer.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
-            writer.writerow(["Operating System", "Processor Info", "RAM Info"])
-            writer.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (1024.0 ** 3), 2)) + " GB"])
-            writer.writerow(["Wasm_time_taken", "Js_time_taken"])
-            for wasm_time, js_time in zip(webassembly_times, javascript_times):
-                writer.writerow([wasm_time, js_time])
+        write_csv_file(file_path, driver, browser_config, webassembly_times, javascript_times)
+
 
         driver.get(MAIN_URL)
-        time.sleep(3)
+        time.sleep(1)
 
     except Exception as e:
         print("An error occurred:", e)
@@ -223,21 +206,9 @@ def thresholdFunc(driver, browser_config):
             time.sleep(3)
             time_taken = WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.ID, "timeLabel")))
             javascript_times_thre.append(time_taken.text)
-        
-
-        time.sleep(3)
-        
+        time.sleep(1)
         file_path = os.path.join(THRESHOLD, f'{browser_config["browserName"]}_threshold.csv')
-        with open(file_path, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(["Browser Name", "Browser Version"])
-            writer.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
-            writer.writerow(["Operating System", "Processor Info", "RAM Info"])
-            writer.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (1024.0 ** 3), 2)) + " GB"])
-            writer.writerow(["Wasm_time_taken", "Js_time_taken"])
-            
-            for wasm_time, js_time in zip(webassembly_times_thre, javascript_times_thre):
-                writer.writerow([wasm_time, js_time])
+        write_csv_file(file_path, driver, browser_config, webassembly_times_thre, javascript_times_thre)
 
         
         driver.get(MAIN_URL)
@@ -288,15 +259,8 @@ def fiboFunc(driver, browser_config):
 
         time.sleep(1)
         file_path = os.path.join(FIBO_CAL, f'{browser_config["browserName"]}_fibonacci.csv')
-        with open(file_path, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(["Browser Name", "Browser Version"])
-            writer.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
-            writer.writerow(["Operating System", "Processor Info", "RAM Info"])
-            writer.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (1024.0 ** 3), 2)) + " GB"])
-            writer.writerow(["Wasm_time_taken", "Js_time_taken"])
-            for wasm_time, js_time in zip(webassembly_times, javascript_times):
-                writer.writerow([wasm_time, js_time])
+        write_csv_file(file_path, driver, browser_config, webassembly_times, javascript_times)
+
 
         driver.get(MAIN_URL)
         time.sleep(3)

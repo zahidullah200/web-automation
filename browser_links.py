@@ -20,12 +20,6 @@ import sys
 
 algorithms_path = os.path.abspath('algorithms')
 
-# from report import bubbleSort
-# from report import image_generationSortFun
-# from report import reverseArray
-# from report import thresholdImg
-# from report import fibonaccFuncReport
-# from merge import merge_pdfs  
 
 # Define the list of browsers  
 browsers = [

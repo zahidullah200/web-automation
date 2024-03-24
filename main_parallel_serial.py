@@ -1,5 +1,5 @@
 from browser_links import *
-from functions_algorithms import thresholdFunc, bubleFunc, imageGenerationFunc, reverseFunc, fiboFunc
+from functions_algorithms import *
 from report import *
 from merge import merge_pdfs
 
@@ -37,13 +37,13 @@ def test_parallel_serial(browser_config):
         # Image generation function calling from functions_algorithms
         imageGenerationFunc(driver, browser_config)
 
-        # Reverse array
+        # # Reverse array
         reverseFunc(driver, browser_config)
 
-        # Image threshold algorithm
+        # # Image threshold algorithm
         thresholdFunc(driver, browser_config)
 
-        # Fibonacci function calling
+        # # Fibonacci function calling
         fiboFunc(driver, browser_config)
 
         # Generate reports
