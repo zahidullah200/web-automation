@@ -8,13 +8,13 @@ image_folder = "images"
 
 def generate_reports():
     # Call the function for each performance metric
-    generate_report('bubble_sort', 'bubble', 'Bubble Sort Report in 4 Major Browsers')
-    generate_report('image_generation_sort', 'image-generation', 'Image Generation and Sort Report in 4 Major Browsers')
-    generate_report('reverseArray', 'reverse-array', 'Reverse Array Report in 4 Major Browsers')
-    generate_report('threshold', 'threshold', 'Threshold Image Processing Report in 4 Major Browsers')
-    generate_report('fibonacci', 'fibonacci', 'Fibonacci Report in 4 Major Browsers')
-    generate_report('quicksort', 'quick_sort', 'Quick Sort Report in 4 Major Browsers')
-    generate_report('convolution', 'convolution', 'Convolution Image Pocessing Report in 4 Major Browsers')
+    generate_report('bubble_sort', 'bubble', 'Bubble Sort Report in 3 Major Browsers')
+    generate_report('image_generation_sort', 'image-generation', 'Image Generation and Sort Report in 3 Major Browsers')
+    generate_report('reverseArray', 'reverse-array', 'Reverse Array Report in 3 Major Browsers')
+    generate_report('threshold', 'threshold', 'Threshold Image Processing Report in 3 Major Browsers')
+    generate_report('fibonacci', 'fibonacci', 'Fibonacci Report in 3 Major Browsers')
+    generate_report('quicksort', 'quick_sort', 'Quick Sort Report in 3 Major Browsers')
+    generate_report('convolution', 'convolution', 'Convolution Image Pocessing Report in 3 Major Browsers')
 
     # List of PDF files to merge
     pdf_files = ['reports/image_generation_sort.pdf', 'reports/bubble_sort.pdf', 'reports/reverseArray.pdf', 'reports/threshold.pdf', 'reports/fibonacci.pdf', 'reports/quicksort.pdf', 'reports/convolution.pdf']

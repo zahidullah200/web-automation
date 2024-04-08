@@ -4,10 +4,15 @@ from browser_links import *
 
 def read_numbers_and_send_keys(filename, input_element):
     with open(filename, 'r') as file:
-        numbers_str = file.read()
+        # Read all numbers from the file
+        numbers_list = file.readlines()
+
+        # Concatenate all numbers into a single string
+        numbers_str = ''.join(numbers_list)
 
     # Send the entire string to the input element
     input_element.send_keys(numbers_str)
+
 
 
 
