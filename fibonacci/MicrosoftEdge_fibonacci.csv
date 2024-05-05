@@ -1,15 +1,15 @@
 Browser Name,Browser Version
-MicrosoftEdge,123.0.2420.81
+MicrosoftEdge,123.0.2420.97
 Operating System,Processor Info,RAM Info
 Windows,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",7.86 GB
 Wasm_time_taken,Js_time_taken
-205.20 ms,199.20 ms
-207.00 ms,197.00 ms
-194.30 ms,197.50 ms
-200.00 ms,249.80 ms
-196.20 ms,240.90 ms
-243.30 ms,199.30 ms
-233.90 ms,244.90 ms
-196.00 ms,200.50 ms
-197.30 ms,238.00 ms
-207.40 ms,217.70 ms
+225.20 ms,316.40 ms
+96.40 ms,203.00 ms
+100.90 ms,211.20 ms
+98.50 ms,198.80 ms
+99.30 ms,200.40 ms
+104.80 ms,200.50 ms
+92.20 ms,207.10 ms
+91.50 ms,204.00 ms
+97.00 ms,202.30 ms
+95.60 ms,207.80 ms

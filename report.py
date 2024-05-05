@@ -26,12 +26,15 @@ def generate_report(metric_name, csv_folder, report_title):
     wasm_means = [chrome_wasm_mean, firefox_wasm_mean, edge_wasm_mean]
     js_means = [chrome_js_mean, firefox_js_mean, edge_js_mean]
 
+    bar_width = 0.35
+    index = range(len(browsers))
     plt.figure(figsize=(10, 6))
-    plt.plot(browsers, wasm_means, marker='o', color='blue', label='Wasm')
-    plt.plot(browsers, js_means, marker='o', color='orange', label='Js')
+    plt.bar(index, wasm_means, bar_width, label='Wasm', color='blue')
+    plt.bar([i + bar_width for i in index], js_means, bar_width, label='Js', color='orange')
     plt.xlabel('Browsers')
     plt.ylabel('Mean Time (ms)')
     plt.title(f'Comparison of Wasm and Js Performance Across Browsers for {metric_name}')
+    plt.xticks([i + bar_width / 2 for i in index], browsers)
     plt.legend()
     plt.grid(True)
     
@@ -63,6 +66,7 @@ def generate_report(metric_name, csv_folder, report_title):
     doc.build([report_title, Spacer(1, 20), doc_title, Spacer(1, 10)] + report_data + [Spacer(1, 20), graph])
 
     print("PDF report generated successfully.")
+
 
 def read_csv(filename):
     wasm_times = []

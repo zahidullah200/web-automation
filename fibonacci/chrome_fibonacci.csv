@@ -1,15 +1,15 @@
 Browser Name,Browser Version
-chrome,123.0.6312.106
+chrome,124.0.6367.60
 Operating System,Processor Info,RAM Info
 Windows,"Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",7.86 GB
 Wasm_time_taken,Js_time_taken
-198.80 ms,198.00 ms
-196.40 ms,198.00 ms
-195.70 ms,207.50 ms
-191.40 ms,196.90 ms
-195.10 ms,197.80 ms
-192.80 ms,196.20 ms
-193.60 ms,198.80 ms
-192.60 ms,195.00 ms
-192.80 ms,200.30 ms
-193.40 ms,194.30 ms
+91.20 ms,212.00 ms
+89.30 ms,194.50 ms
+90.00 ms,198.80 ms
+90.80 ms,194.80 ms
+89.50 ms,194.30 ms
+97.60 ms,195.00 ms
+89.30 ms,211.70 ms
+90.20 ms,194.60 ms
+90.00 ms,196.80 ms
+90.20 ms,194.40 ms

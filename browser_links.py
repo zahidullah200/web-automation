@@ -30,7 +30,7 @@ browsers = [
 ]
 
 # Define the URL of the main page, bubble sort page, and image generation page
-MAIN_URL = 'http://127.0.0.1:5502/home.html'
+MAIN_URL = 'http://127.0.0.1:5502/main.html'
 BUBBLE_SORT_URL = 'http://127.0.0.1:5502/Algorithms/bubble_sort/bubblemain.html'
 IMG_GEN_URL = 'http://127.0.0.1:5502/Algorithms/image_generation_and_sort/index.html'
 REVERSE_ARRAY = 'http://127.0.0.1:5502/Algorithms/reverse_array/reverse.html'
