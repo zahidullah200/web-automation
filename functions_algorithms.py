@@ -25,7 +25,7 @@ def write_csv_file(file_path, driver, browser_config, webassembly_times, javascr
         writer.writerow(["Browser Name", "Browser Version"])
         writer.writerow([driver.capabilities['browserName'], driver.capabilities['browserVersion']])
         writer.writerow(["Operating System", "Processor Info", "RAM Info"])
-        writer.writerow([platform.system(), platform.processor(), str(round(psutil.virtual_memory().total / (20024.0 ** 3), 2)) + " GB"])
+        writer.writerow([platform.system(), platform.processor(), f"{psutil.virtual_memory().total / (1024.0 ** 3):.2f} GB"])
         writer.writerow(["Wasm_time_taken", "Js_time_taken"])
         for wasm_time, js_time in zip(webassembly_times, javascript_times):
             writer.writerow([wasm_time, js_time])

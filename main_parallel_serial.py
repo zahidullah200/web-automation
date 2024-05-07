@@ -36,7 +36,7 @@ def generate_reports():
 
     # List of PDF files to merge
     pdf_files = ['reports/power.pdf', 'reports/summation.pdf', 'reports/reverseArray.pdf', 'reports/threshold.pdf', 'reports/factorialcon.pdf', 'reports/contpermutation.pdf', 'reports/bubble_sort.pdf', 'reports/fibonacci.pdf', 
-                 'reports/cubicpolynomial.pdf', 'reports/matrixmul.pdf', 'reports/nestloopmul.pdf', 'reports/nestloopsum.pdf', 'reports/binarysearch.pdf', 'reports/binarysearchrotated.pdf', 'reports/binarysearchrotated.pdf', 'reports/quicksort.pdf']
+                 'reports/cubicpolynomial.pdf', 'reports/matrixmul.pdf', 'reports/nestloopmul.pdf', 'reports/nestloopsum.pdf', 'reports/binarysearch.pdf', 'reports/binarysearchrotated.pdf', 'reports/image_generation_sort.pdf', 'reports/quicksort.pdf']
 
     # Output path for the merged PDF
     output_path = 'all_reports_combined.pdf'
