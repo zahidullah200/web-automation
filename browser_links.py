@@ -32,4 +32,4 @@ browsers = [
 ]
 
 # Define the URL of the main page, bubble sort page, and image generation page
-MAIN_URL = 'http://127.0.0.1:5502/main.html'
+MAIN_URL = 'http://127.0.0.1:5502/index.html'
