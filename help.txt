@@ -1,0 +1,5 @@
+-   If you want to runt the scripts parallel in all 3 browsers the run the following:
+    -   pytest -n 3 execute_test.py
+
+-   Run the scripts serialy 
+    -   pytest -n 1 execute_test.py

@@ -1,6 +1,6 @@
-from browser_links import *
-from main_functions import *
-from report import *
+from web_automation_suite.browsers_links_and_pageURL import *
+from web_automation_suite.main_functionality import *
+from web_automation_suite.report import *
 
 # Path to the folder containing the images
 image_folder = "images"
